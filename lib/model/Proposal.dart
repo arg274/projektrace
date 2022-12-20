@@ -82,8 +82,7 @@ class Proposal{
     _status = value;
   }
 
-  Proposal(this._id, this._name, this._location, this._latitude, this._longitude,
-      this._execAgency,this._timespan,this._goal,this._proposalDate,this._status);
+  Proposal(this._id, this._name, this._location, this._latitude, this._longitude, this._execAgency,this._cost, this._timespan,this._goal,this._proposalDate,this._status);
 
 
 }
