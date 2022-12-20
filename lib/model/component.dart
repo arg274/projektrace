@@ -1,43 +1,27 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'component.g.dart';
+
+@JsonSerializable()
 class Component{
-  String _id;
+  @JsonKey(name: "id")
+  String id;
 
-  String get id => _id;
+  @JsonKey(name: "pid")
+  String pid;
 
-  set id(String value) {
-    _id = value;
-  }
+  @JsonKey(name: "type")
+  String type;
 
-  String get pid => _pid;
+  @JsonKey(name: "dependency")
+  List<Component> dependency;
 
-  set pid(String value) {
-    _pid = value;
-  }
+  @JsonKey(name: "budgetRatio")
+  double budgetRatio;
 
-  String _pid;
-  String _type;
+  Component(this.id,this.pid,this.type,this.dependency,this.budgetRatio);
 
-  String get type => _type;
+  factory Component.fromJson(Map<String, dynamic> json) => _$ComponentFromJson(json);
 
-  set type(String value) {
-    _type = value;
-  }
-
-  List<Component> _dependency;
-
-  double get budgetRatio => _budgetRatio;
-
-  set budgetRatio(double value) {
-    _budgetRatio = value;
-  }
-
-  double _budgetRatio;
-
-  List<Component> get dependency => _dependency;
-
-  set dependency(List<Component> value) {
-    _dependency = value;
-  }
-
-  Component(this._id,this._pid,this._type,this._dependency,this._budgetRatio);
-
+  Map<String, dynamic> toJson() => _$ComponentToJson(this);
 }

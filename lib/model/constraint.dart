@@ -1,26 +1,19 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'constraint.g.dart';
+
+@JsonSerializable()
 class Constraint{
-  String _code;
+  @JsonKey(name: "code")
+  String code;
+  @JsonKey(name: "type")
+  String type;
+  @JsonKey(name: "maxLimit")
+  int maxLimit;
 
-  String get code => _code;
+  Constraint(this.code,this.type,this.maxLimit);
 
-  set code(String value) {
-    _code = value;
-  }
+  factory Constraint.fromJson(Map<String, dynamic> json) => _$ConstraintFromJson(json);
 
-  int get maxLimit => _maxLimit;
-
-  set maxLimit(int value) {
-    _maxLimit = value;
-  }
-
-  String _type;
-  int _maxLimit;
-
-  String get type => _type;
-
-  set type(String value) {
-    _type = value;
-  }
-
-  Constraint(this._code,this._type,this._maxLimit);
+  Map<String, dynamic> toJson() => _$ConstraintToJson(this);
 }
