@@ -13,6 +13,7 @@ class AuthController
       );
       return null;
     } on FirebaseAuthException catch (e) {
+      print(e.message);
       return e.message;
     }
   }

@@ -114,8 +114,8 @@ class CustomMarkerState extends State<CustomMarker> {
                 onMapLongClick: _onMapLongClickCallback,
                 onCameraIdle: _onCameraIdleCallback,
                 onStyleLoadedCallback: _onStyleLoadedCallback,
-                initialCameraPosition:
-                CameraPosition(target: LatLng(projects[0].latitude, projects[0].longitude), zoom: 16),
+                initialCameraPosition: CameraPosition(target: LatLng(30.0, 90.0), zoom: 16),
+                // CameraPosition(target: LatLng(projects[0].latitude, projects[0].longitude), zoom: 16),
               ),
               IgnorePointer(
                   ignoring: true,

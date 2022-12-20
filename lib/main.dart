@@ -8,12 +8,16 @@ import 'package:codesamuraiproto2022/theme/constants.dart';
 import 'package:codesamuraiproto2022/ui/screen/project_map.dart';
 import 'package:codesamuraiproto2022/ui/screen/project_list.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
+import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   AuthController auther = AuthController();
-  auther.register(email: "ogga@boga.com", password: "unga");
+  await auther.register(email: "ogga@boga.com", password: "ewhwiwefewjhd");
+  print('perhaps');
   runApp(const CodeSamuraiProto());
 }
 
