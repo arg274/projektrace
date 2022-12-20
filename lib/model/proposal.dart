@@ -66,12 +66,12 @@ class Proposal{
     _goal = value;
   }
 
-  DateTime _proposalDate;
+  DateTime _date;
 
-  DateTime get proposalDate => _proposalDate;
+  DateTime get date => _date;
 
   set proposalDate(DateTime value) {
-    _proposalDate = value;
+    _date = value;
   }
 
   String _status;
@@ -82,7 +82,7 @@ class Proposal{
     _status = value;
   }
 
-  Proposal(this._id, this._name, this._location, this._latitude, this._longitude, this._execAgency,this._cost, this._timespan,this._goal,this._proposalDate,this._status);
+  Proposal(this._id, this._name, this._location, this._latitude, this._longitude, this._execAgency,this._cost, this._timespan,this._goal,this._date,this._status);
 
 
 }

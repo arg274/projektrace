@@ -26,11 +26,25 @@ class Project
   DateTime _startDate;
   double _completion;
   double _actualCost;
+  Map<String, int> _ratings;
 
+  Map<String, int> get ratings => _ratings;
+
+  set ratings(Map<String, int> value) {
+    _ratings = value;
+  }
+
+  Map<String, String> get comments => _comments;
+
+  set comments(Map<String, String> value) {
+    _comments = value;
+  }
+
+  Map<String, String> _comments;
   Project(this._name, this._location, this._latitude,
     this._longitude, this._execAgency, this._cost,
     this._timespan,this._projectId, this._goal,this._startDate,
-    this._completion, this._actualCost
+    this._completion, this._actualCost, this._ratings, this._comments
   );
 
   set latitude(double value) {
