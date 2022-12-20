@@ -30,11 +30,11 @@ class _ProjectListState extends State<ProjectList> {
           ));
         } else if (snapshot.hasData) {
           print(snapshot.data);
-          List<Project> projects = [];
+          List<Project> projects = <Project>[];
 
-          for (var project in snapshot.data!) {
-            projects.add(Project.fromCsvLine(project));
-          }
+      //    for (var project in snapshot.data!) {
+      //      projects.add(Project.fromCsvLine(project));
+      //    }
           
           child = ListView.builder(
               itemCount: projects.length,
