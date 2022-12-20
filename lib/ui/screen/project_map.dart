@@ -80,9 +80,9 @@ class CustomMarkerState extends State<CustomMarker> {
           print(snapshot.data);
           List<Project> projects = [];
 
-          for (var project in snapshot.data!) {
-            projects.add(Project.fromCsvLine(project));
-          }
+        //  for (var project in snapshot.data!) {
+        //    projects.add(Project.fromCsvLine(project));
+        //  }
 
           child = Scaffold(
             body: Stack(children: [
@@ -98,9 +98,9 @@ class CustomMarkerState extends State<CustomMarker> {
                   });
                   var param = <LatLng>[];
                   for (var project in projects) {
-                    for (var coord in project.coords) {
-                      param.add(LatLng(coord.lat, coord.long));
-                    }
+                   // for (var coord in project.coords) {
+                      param.add(LatLng(project.latitude, project.longitude));
+                   // }
                   }
 
                   _mapController.toScreenLocationBatch(param).then((value) {
@@ -115,7 +115,7 @@ class CustomMarkerState extends State<CustomMarker> {
                 onCameraIdle: _onCameraIdleCallback,
                 onStyleLoadedCallback: _onStyleLoadedCallback,
                 initialCameraPosition:
-                CameraPosition(target: LatLng(projects[0].coords[0].lat, projects[0].coords[0].long), zoom: 16),
+                CameraPosition(target: LatLng(projects[0].latitude, projects[0].longitude), zoom: 16),
               ),
               IgnorePointer(
                   ignoring: true,
