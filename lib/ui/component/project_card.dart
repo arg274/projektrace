@@ -61,18 +61,18 @@ class ProjectCard extends StatelessWidget {
                           ),
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
-                            child: Text(project.agency,
+                            child: Text(project.execAgency,
                                 style: Theme.of(context).textTheme.bodyText1),
                           ),
                           Text(
-                            '${DateFormat.yMMMMd().format(project.start)} - ${DateFormat.yMMMMd().format(project.start)}',
+                            '${DateFormat.yMMMMd().format(project.startDate)} - ${DateFormat.yMMMMd().format(project.startDate)}',
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText1,
                           ),
                           Padding(
                             padding: const EdgeInsets.fromLTRB(0.0, 6.0, 0.0, 0.0),
-                            child: Text(project.description,
+                            child: Text(project.goal,
                                 style: Theme.of(context).textTheme.bodyText2),
                           ),
                         ],
@@ -101,17 +101,17 @@ class ProjectCard extends StatelessWidget {
                       'Completion'),
                   insertDuoStat(context,
                       Text(
-                        project.budget.replaceFirst('JPY ', ''),
+                        project.cost.toString(),
                         style: Theme.of(context).textTheme.headline3,
                       ),
                       'Budget'
                   ),
                   insertDuoStat(context,
                       Text(
-                        project.start.calendarDaysTill(
-                            project.end.year,
-                            project.end.month,
-                            project.end.day).toString(),
+                        DateTime.now().calendarDaysTill(
+                            project.startDate.add(Duration(days: project.timespan.round()*365)).year,
+                            project.startDate.add(Duration(days: project.timespan.round()*365)).month,
+                            project.startDate.add(Duration(days: project.timespan.round()*365)).day).toString(),
                         style: Theme.of(context).textTheme.headline3,
                       ),
                       'Days Left')
