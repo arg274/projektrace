@@ -1,12 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:uuid/uuid.dart';
 
 class ExecutiveController
 {
+  final FirebaseFirestore db = FirebaseFirestore.instance;
   //TODO this will return all the projects under this user
-  Future? listCurrentProjects(Uuid execId)
+  Query<Map<String, dynamic>>? listCurrentProjects(String execId)
   {
-    return null;
+    return db.collection("projects").where("exec" , isEqualTo: execId);
+    //return null;
   }
   //TODO this will return all projects under this user with sorted order
   Future? listCurrentProjectsFiltered(Uuid execId, String type)

@@ -1,4 +1,5 @@
 import 'package:codesamuraiproto2022/controller/auth_controller.dart';
+import 'package:codesamuraiproto2022/controller/exec_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,7 +17,9 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   AuthController auther = AuthController();
-  await auther.register(email: "ogga@boga.com", password: "ewhwiwefewjhd");
+  ExecutiveController exec = ExecutiveController();
+  //await auther.register(email: "ogga@boga.com", password: "ewhwiwefewjhd");
+  await exec.listCurrentProjects("LGD");
   print('perhaps');
   runApp(const CodeSamuraiProto());
 }
