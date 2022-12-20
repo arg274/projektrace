@@ -5,7 +5,7 @@ class AuthController
   get user => _auth.currentUser;
 
   //SIGN UP METHOD
-  Future register({required String email, required String password}) async {
+  Future<String?> register({required String email, required String password}) async {
     try {
       await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -13,7 +13,6 @@ class AuthController
       );
       return null;
     } on FirebaseAuthException catch (e) {
-      print(e.message);
       return e.message;
     }
   }

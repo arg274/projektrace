@@ -1,4 +1,6 @@
 import 'package:codesamuraiproto2022/controller/auth_controller.dart';
+import 'package:codesamuraiproto2022/ui/screen/auth_screen.dart';
+import 'package:codesamuraiproto2022/ui/screen/sign_in_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,25 +14,36 @@ import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  AuthController auther = AuthController();
-  await auther.register(email: "ogga@boga.com", password: "ewhwiwefewjhd");
-  print('perhaps');
-  runApp(const CodeSamuraiProto());
+  runApp(CodeSamuraiProto());
 }
 
 class CodeSamuraiProto extends StatelessWidget {
-  const CodeSamuraiProto({super.key});
+  CodeSamuraiProto({super.key});
+  final Future<FirebaseApp> _firebaseApp = Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    AuthController auth = AuthController();
     return MaterialApp(
       title: 'Code Samurai Proto',
       theme: DynamicColorTheme().lightTheme(),
-      home: const DummyPage(),
+      home: FutureBuilder(
+        future: _firebaseApp,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            debugPrint("Error! ${snapshot.error.toString()}");
+            return const Text("Something Went Wrong");
+          } else if (snapshot.hasData) {
+            debugPrint("Firebase Initialization successfull");
+            return Authenticate(auther: auth,);
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
+      ),
     );
   }
 }
