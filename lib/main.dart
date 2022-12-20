@@ -12,6 +12,8 @@ import 'package:mapbox_gl/mapbox_gl.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  AuthController auther = AuthController();
+  auther.register(email: "ogga@boga.com", password: "unga");
   runApp(const CodeSamuraiProto());
 }
 
