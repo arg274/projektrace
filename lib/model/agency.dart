@@ -1,43 +1,30 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'agency.g.dart';
+
+@JsonSerializable()
 class Agency{
-  String _id;
+  @JsonKey(name: "id")
+  String id;
 
-  String get id => _id;
+  @JsonKey(name: "code")
+  String code;
 
-  set id(String value) {
-    _id = value;
-  }
+  @JsonKey(name: "name")
+  String name;
 
-  String get description => _description;
+  @JsonKey(name: "type")
+  String type;
 
-  set description(String value) {
-    _description = value;
-  }
+  @JsonKey(name: "description")
+  String description;
 
-  String _code;
+  Agency(this.id, this.code, this.name, this.type, this.description);
 
-  String get code => _code;
+  /// Connect the generated [_$PersonFromJson] function to the `fromJson`
+  /// factory.
+  factory Agency.fromJson(Map<String, dynamic> json) => _$AgencyFromJson(json);
 
-  set code(String value) {
-    _code = value;
-  }
-
-  String _name;
-
-  String get name => _name;
-
-  set name(String value) {
-    _name = value;
-  }
-
-  String _type;
-
-  String get type => _type;
-
-  set type(String value) {
-    _type = value;
-  }
-
-  String _description;
-
-  Agency(this._id,this._code,this._name,this._type,this._description);
+  /// Connect the generated [_$PersonToJson] function to the `toJson` method.
+  Map<String, dynamic> toJson() => _$AgencyToJson(this);
 }
