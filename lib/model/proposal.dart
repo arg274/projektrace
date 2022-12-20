@@ -1,88 +1,37 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'proposal.g.dart';
+@JsonSerializable()
 class Proposal{
-  String _id;
+  @JsonKey(name: "id")
+  String id;
+  @JsonKey(name: "name")
+  String name;
+  @JsonKey(name: "location")
+  String location;
+  @JsonKey(name: "latitude")
+  double latitude;
+  @JsonKey(name: "longitude")
+  double longitude;
+  @JsonKey(name: "execAgency")
+  String execAgency;
+  @JsonKey(name: "cost")
+  double cost;
+  @JsonKey(name: "timespan")
+  double timespan;
+  @JsonKey(name: "goal")
+  String goal;
+  @JsonKey(name: "date")
+  DateTime date;
+  @JsonKey(name: "status")
+  String status;
 
-  String get id => _id;
+  Proposal(this.id, this.name, this.location, this.latitude, this.longitude, this.execAgency, this.cost, this.timespan, this.goal, this.date, this.status);
 
-  set id(String value) {
-    _id = value;
-  }
+  /// Connect the generated [_$PersonFromJson] function to the `fromJson`
+  /// factory.
+  factory Proposal.fromJson(Map<String, dynamic> json) => _$ProposalFromJson(json);
 
-  double get latitude => _latitude;
-
-  set latitude(double value) {
-    _latitude = value;
-  }
-
-  String _name;
-
-  String get name => _name;
-
-  set name(String value) {
-    _name = value;
-  }
-
-  double get cost => _cost;
-
-  set cost(double value) {
-    _cost = value;
-  }
-
-  double get longitude => _longitude;
-
-  set longitude(double value) {
-    _longitude = value;
-  }
-
-  String get location => _location;
-
-  set location(String value) {
-    _location = value;
-  }
-
-  String get execAgency => _execAgency;
-
-  set execAgency(String value) {
-    _execAgency = value;
-  }
-
-  String _location;
-  double _latitude;
-  double _longitude;
-  String _execAgency;
-  double _cost;
-  double _timespan;
-
-  double get timespan => _timespan;
-
-  set timespan(double value) {
-    _timespan = value;
-  }
-
-  String _goal;
-
-  String get goal => _goal;
-
-  set goal(String value) {
-    _goal = value;
-  }
-
-  DateTime _date;
-
-  DateTime get date => _date;
-
-  set proposalDate(DateTime value) {
-    _date = value;
-  }
-
-  String _status;
-
-  String get status => _status;
-
-  set status(String value) {
-    _status = value;
-  }
-
-  Proposal(this._id, this._name, this._location, this._latitude, this._longitude, this._execAgency,this._cost, this._timespan,this._goal,this._date,this._status);
-
-
+  /// Connect the generated [_$PersonToJson] function to the `toJson` method.
+  Map<String, dynamic> toJson() => _$ProposalToJson(this);
 }
