@@ -13,14 +13,14 @@ class Constraint{
     _maxLimit = value;
   }
 
-  String _constraintType;
+  String _type;
   int _maxLimit;
 
-  String get constraintType => _constraintType;
+  String get type => _type;
 
   set constraintType(String value) {
-    _constraintType = value;
+    _type = value;
   }
 
-  Constraint(this._code,this._constraintType,this._maxLimit);
+  Constraint(this._code,this._type,this._maxLimit);
 }

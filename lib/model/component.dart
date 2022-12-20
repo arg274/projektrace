@@ -14,14 +14,6 @@ class Component{
   }
 
   String _pid;
-
-  String get agencyID => _agencyID;
-
-  set agencyID(String value) {
-    _agencyID = value;
-  }
-
-  String _agencyID;
   String _type;
 
   String get type => _type;
@@ -46,6 +38,6 @@ class Component{
     _dependency = value;
   }
 
-  Component(this._id,this._pid,this._agencyID,this._type,this._dependency,this._budgetRatio);
+  Component(this._id,this._pid,this._type,this._dependency,this._budgetRatio);
 
 }
