@@ -18,7 +18,7 @@ class Project
 
   String get location => _location;
   double _longitude;
-  String _exec;
+  String _execAgency;
   double _cost;
   double _timespan;
   String _projectId;
@@ -28,7 +28,7 @@ class Project
   double _actualCost;
 
   Project(this._name, this._location, this._latitude,
-    this._longitude, this._exec, this._cost,
+    this._longitude, this._execAgency, this._cost,
     this._timespan,this._projectId, this._goal,this._startDate,
     this._completion, this._actualCost
   );
@@ -41,8 +41,8 @@ class Project
     _longitude = value;
   }
 
-  set exec(String value) {
-    _exec = value;
+  set execAgency(String value) {
+    _execAgency = value;
   }
 
   set cost(double value) {
@@ -77,7 +77,7 @@ class Project
 
   double get longitude => _longitude;
 
-  String get exec => _exec;
+  String get execAgency => _execAgency;
 
   double get cost => _cost;
 
