@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -7,8 +8,10 @@ import 'package:codesamuraiproto2022/ui/screen/project_map.dart';
 import 'package:codesamuraiproto2022/ui/screen/project_list.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  
   runApp(const CodeSamuraiProto());
 }
 
