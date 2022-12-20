@@ -18,7 +18,7 @@ class Constraint{
 
   String get type => _type;
 
-  set constraintType(String value) {
+  set type(String value) {
     _type = value;
   }
 
